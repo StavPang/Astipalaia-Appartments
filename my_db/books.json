@@ -1,0 +1,156 @@
+[{
+  "_id": {
+    "$oid": "648d72fad71c2c32dcba82cc"
+  },
+  "datetime": "12 Αυγούστου 2023 20:30-22:30",
+  "userid": "646b7566a854c331ac81a597",
+  "cardnum": "undefinedundefinedundefinedundefined",
+  "title": "Συναυλία Κλασικής Μουσικής",
+  "total": "0",
+  "seats": [
+    {
+      "row": "4",
+      "seat": "8",
+      "_id": {
+        "$oid": "648d72fad71c2c32dcba82cd"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648d72fad71c2c32dcba82ce"
+  },
+  "name1": "",
+  "phone1": "",
+  "name2": "",
+  "name": "Stav Pang",
+  "phone": "6843643641",
+  "name3": "",
+  "phone3": "",
+  "userid": "646b7566a854c331ac81a597",
+  "cardnum": "4444212100001234",
+  "cardtype": "Mastercard",
+  "seats": [
+    0
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648d73f9d71c2c32dcba82cf"
+  },
+  "datetime": "3 Σεπτεμβρίου 2023 10:00-18:00",
+  "userid": "646b7566a854c331ac81a597",
+  "cardnum": "undefinedundefinedundefinedundefined",
+  "title": "Παραδοσιακή Γευστική Εμπειρία",
+  "total": "0",
+  "seats": [
+    {
+      "row": "3",
+      "seat": "8",
+      "_id": {
+        "$oid": "648d73f9d71c2c32dcba82d0"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648d73fad71c2c32dcba82d1"
+  },
+  "name1": "",
+  "phone1": "",
+  "name2": "",
+  "name": "Stav Pang",
+  "phone": "6843643641",
+  "name3": "",
+  "phone3": "",
+  "userid": "646b7566a854c331ac81a597",
+  "cardnum": "1111111111111111",
+  "cardtype": "Crypto Card",
+  "seats": [
+    0
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648d9c6a79a96e185cd421cb"
+  },
+  "datetime": "12 Αυγούστου 2023 20:30-22:30",
+  "userid": "648d9c0979a96e185cd421ca",
+  "cardnum": "undefinedundefinedundefinedundefined",
+  "title": "Συναυλία Κλασικής Μουσικής",
+  "total": "0",
+  "seats": [
+    {
+      "row": "2",
+      "seat": "3",
+      "_id": {
+        "$oid": "648d9c6a79a96e185cd421cd"
+      }
+    },
+    {
+      "row": "2",
+      "seat": "4",
+      "_id": {
+        "$oid": "648d9c6a79a96e185cd421cc"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648d9c6a79a96e185cd421ce"
+  },
+  "name1": "kseyo Manea",
+  "phone1": "6843643641",
+  "name2": "",
+  "name": "Σταυρος Παναγιωτακοπουλος",
+  "phone": "6843643641",
+  "name3": "",
+  "phone3": "",
+  "userid": "648d9c0979a96e185cd421ca",
+  "cardnum": "1111111111111111",
+  "cardtype": "Crypto Card",
+  "seats": [
+    0
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6490b40d0fb3ec0f8c09b369"
+  },
+  "datetime": "25 Ιουλίου 2023 18:00-23:00",
+  "userid": "648dc52a79a96e185cd421d2",
+  "cardnum": "undefinedundefinedundefinedundefined",
+  "title": " Εορτασμός της Τοπικής Παράδοσης",
+  "total": "0",
+  "seats": [
+    {
+      "row": "1",
+      "seat": "6",
+      "_id": {
+        "$oid": "6490b40d0fb3ec0f8c09b36a"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6490b40e0fb3ec0f8c09b36b"
+  },
+  "name1": "",
+  "phone1": "",
+  "name2": "",
+  "name": "kseyo Manea",
+  "phone": "6843643641",
+  "name3": "",
+  "phone3": "",
+  "userid": "648dc52a79a96e185cd421d2",
+  "cardnum": "1111111111111111",
+  "cardtype": "Mastercard",
+  "seats": [
+    0
+  ],
+  "__v": 0
+}]
