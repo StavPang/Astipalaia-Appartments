@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campy</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/landing.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    <style>
+      
+    /* Custom CSS */
+    
+    /* Custom CSS */
+    html,
+    body {
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .camping-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .camping-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .camping-location {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .camping-description {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+    .nav-bar {
+        background-color: #f8f9fa;
+    }
+
+    .logo {
+        font-size: 24px;
+        padding: 20px;
+    }
+
+    .menu li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .places {
+        background-color: #f8f9fa;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .places-text {
+        margin-bottom: 30px;
+        animation: fadeInUp 1s;
+    }
+
+    .card {
+        border: none;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s;
+    }
+
+    .card-body {
+        flex-grow: 1;
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-subtitle {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .card-text {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+</style>
+
+
+</head>
+<body>
+    <!--===========Nav Bar=================-->
+    <section class="nav-bar">
+        <div class="logo">Astypalea</div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Generic Information</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="/contactus">Contact Us</a></li>
+        </ul>
+    </div>
+    </section>
+
+    <section class="places">
+        <div class="container">
+            <div class="places-text">
+                <h2 class="display-4">Discover Amazing Camping Sites</h2>
+                <p class="lead">Find the perfect camping spot for your adventure</p>
+            </div>
+
+            <div class="row">
+                <% camp.forEach(function(camps) { %>  
+                  <div class="container">
+      
+                    <h1 class="camping-title">Title:<%= camps.title %></h1>
+                    <p class="camping-location">Location:<%= camps.location %></p>
+                    <p class="camping-description">
+                     Description: <%= camps.description %>
+                    </p>
+                    <a href="#" class="btn btn-primary">Read More..</a>
+                  </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.14.5/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+<script>
+  function initMap() {
+      // Map options
+      var options = {
+          center: { lat: 36.5511, lng: 26.3509 }, // Astypalaia coordinates
+          zoom: 12
+      };
+
+      // Create a new map instance
+      var map = new google.maps.Map(document.getElementById("map"), options);
+
+      // Add a marker to the map
+      var marker = new google.maps.Marker({
+          position: { lat: 36.5511, lng: 26.3509 }, // Astypalaia coordinates
+          map: map,
+          title: "Astypalaia"
+      });
+  }
+</script>
+
+

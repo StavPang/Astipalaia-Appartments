@@ -1,0 +1,130 @@
+<style>
+
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+  
+  body {
+    background: #3D7EAA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFE47A, #3D7EAA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFE47A, #3D7EAA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .login {
+    width: 500px;
+    margin: 16px auto;
+    font-size: 16px;
+  }
+  
+  .login-header,
+  .login p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .login-triangle {
+    width: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border: 12px solid transparent;
+    border-bottom-color: #28d;
+  }
+  
+  .login-header {
+    background: #28d;
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  
+  .login-container {
+    background: #ebebeb;
+    padding: 12px;
+  }
+  
+  /* Every row inside .login-container is defined with p tags */
+  .login p {
+    padding: 12px;
+  }
+  
+  .login input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+  }
+  
+  .login input[type="email"],
+  .login input[type="password"] {
+    background: #fff;
+    border-color: #bbb;
+    color: #555;
+  }
+  
+  /* Text fields' focus effect */
+  .login input[type="email"]:focus,
+  .login input[type="password"]:focus {
+    border-color: #888;
+  }
+  
+  .login input[type="submit"] {
+    background: #28d;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .login input[type="submit"]:hover {
+    background: #17c;
+  }
+  
+  /* Buttons' focus effect */
+  .login input[type="submit"]:focus {
+    border-color: #05a;
+  }
+  </style>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Campy</title>
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+
+        <!--===========Nav Bar=================-->
+        <section class="nav-bar">
+            <div class="logo">Astypalea</div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/generics">Generic Information</a></li>
+                <li><a href="/new">Events</a></li>
+                
+                <li><a href="/contacts">contact us</a></li>
+            </ul>
+            </div>
+        
+        </section>
+<div class="login">
+  <div class="login-triangle"></div>
+
+<h2 class="login-header">Sign Up!</h2>
+
+<form class="login-container" action="/register" method="post">
+    <input type="text" name="username" placeholder="username">
+    <input type="text" name="email" placeholder="email">
+    <input type="text" name="phone" placeholder="phone number">
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="Sign up">
+</form>
+
+</div>
+<% include ./partials/footer %>

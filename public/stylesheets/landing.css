@@ -1,0 +1,890 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/*------------------------Scroll Bar-----------------------*/
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #fde65e;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #FDE02F;
+}
+
+/*========================Nav Bar=========================*/
+.nav-bar {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 90px;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px lightslategray;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.logo {
+    flex: 1;
+    font-size: 40px;
+    padding: 20px;
+    margin-left: 50px;
+    font-family: Satisfy;
+}
+
+ul.menu {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.menu li {
+    flex: 1;
+    list-style-type: none;
+    font-size: 16px;
+    font-family: "Barlow Condensed";
+    text-align: center;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.menu li a:hover {
+    color: midnightblue;
+    text-decoration: underline;
+}
+
+/*=============================Banner=============================*/
+.banner {
+    background-image: url("https://www.travel.gr/wp-content/uploads/2022/05/shutterstock_490926502-2048x767.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*overflow: hidden;*/
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    /*background-size: 100%;*/
+}
+
+.banner-text-item {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-heading {
+    flex: 1;
+}
+
+.banner-heading h1 {
+    font-size: 100px;
+    font-weight: normal;
+    color: #FDE02F;
+    font-family: Satisfy;
+}
+
+.banner-text-item .form {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    width: 70%;
+    padding: 1% 2%;
+}
+
+.banner-text-item input,
+.banner-text-item .date,
+.banner-text-item .book {
+    padding: 15px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-family: Roboto;
+    border-radius: 5px;
+    outline: 0;
+    border: none;
+}
+
+.banner-text-item input {
+    width: 50%;
+    flex: 2;
+}
+
+.banner-text-item .date {
+    width: 20%;
+    flex: 1;
+}
+
+.banner-text-item .book {
+    width: 20%;
+    flex: 1;
+}
+
+.banner-text-item .book {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #FDE02F;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "Barlow Condensed";
+    width: 20%;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+/*===========================Services===========================*/
+.services {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-item {
+    flex: 1;
+    padding: 50px 10px;
+    border: lightcyan solid 1px;
+    text-align: center;
+    margin: 180px 50px;
+    transition: all 1s;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-item:hover {
+    box-shadow: 3px 3px 20px lightsteelblue;
+}
+
+.service-item h2 {
+    font-family: Barlow Condensed;
+    font-size: 18px;
+    width: 120px;
+    color: #001F38;
+    flex: 1;
+}
+
+.service-item img {
+    width: 60px;
+    height: 60px;
+    flex: 1;
+}
+
+/*=============================Places===============================*/
+.places-text {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.places-text small {
+    font-family: Roboto;
+    color: #FFC342;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.places-text h2 {
+    font-family: Barlow Condensed;
+    font-size: 55px;
+    color: #191D34;
+    letter-spacing: 1px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 30px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.card {
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 80%;
+    height: auto;
+}
+
+.card img {
+    max-width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cards .text {
+    padding: 20px;
+    font-family: Barlow Condensed;
+    line-height: 50px;
+}
+
+.cards .card-box {
+    display: flex;
+    flex-flow: row;
+    background-color: #FDE02F;
+    font-size: 18px;
+    font-family: Roboto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .cards .card-box:hover {
+    transform: scale(1.05);
+  }
+
+.cards .time {
+    flex: 1;
+}
+
+.cards .location {
+    flex: 2;
+}
+
+.cards .cost {
+    color: #4CAFAD;
+    font-size: 20px;
+}
+
+/*------------Zoom in Photos--------------*/
+.zoom-img {
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.zoom-img .img-card {
+    position: absolute;
+    overflow: hidden;
+}
+
+.img-card img {
+    -webkit-transition: 0.8s ease;
+    transition: 0.8s ease;
+}
+
+.card:hover .zoom-img img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/*=========================About Us=========================*/
+.about {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 150px;
+}
+
+.about-img {
+    flex: 1;
+}
+
+.about-img img {
+    width: 500px;
+    height: 700px;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+    flex: 1;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  .about-text small,
+  .about-text p,
+  .about-text input,
+  .about-text a {
+    flex: 1;
+    font-family: Roboto;
+  }
+  
+  .about-text small {
+    color: #FFC342;
+    font-size: 18px;
+  }
+  
+ 
+  
+  
+  .about-text label {
+    padding-bottom: 10px;
+    color: #506172;
+    font-weight: bolder;
+    font-family: Roboto;
+    letter-spacing: 1px;
+  }
+  
+  .about-text p {
+    width: 500px;
+    line-height: 30px;
+    color: #506172;
+    font-weight: bolder;
+    padding: 50px 0;
+  }
+  
+  .about-text a {
+    background-color: #fff;
+    border: 2px solid #014B85;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 180px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: #014B85;
+    font-weight: bolder;
+    font-size: 14px;
+  }
+  
+  .about-text a:hover {
+    background-color: #014B85;
+    color: #fff;
+  }
+  
+/*===============Footer===================*/
+.footer {
+    background-image: url("https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293781/pine-tree_mq2sgp.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 670px;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer::before {
+    position: absolute;
+    content: '';
+    display: block;
+    background-color: rgba(0, 0, 36, 0.80);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.footer .links {
+    position: relative;
+    color: #fff;
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.links ul {
+    list-style-type: none;
+}
+
+.links h3 {
+    font-family: Barlow Condensed;
+    font-weight: normal;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.links li {
+    font-family: Roboto;
+    cursor: pointer;
+    padding: 15px 0;
+}
+
+.links li:hover {
+    color: #FFA801;
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .nav-bar {
+        /* Mobile styles for nav-bar */
+        height: auto; /* Remove fixed height to allow for content adjustment */
+        display: flex; /* Display elements in a row */
+        justify-content: space-between; /* Space the elements evenly along the row */
+        align-items: center; /* Center-align the elements vertically */
+        padding: 10px; /* Adjust padding as needed */
+      }
+    
+      .logo {
+        font-size: 30px;
+        margin-left: 0; /* Remove the left margin to center the logo */
+      }
+    
+      ul.menu {
+        display: flex; /* Display menu items in a row */
+        justify-content: center; /* Center-align the menu items horizontally */
+        align-items: center; /* Center-align the menu items vertically */
+        margin-right: 20px; /* Add some right margin to separate from the logo */
+      }
+    
+      .menu li {
+        margin: 0 10px; /* Add spacing between menu items */
+      }
+
+    .banner-heading h1 {
+        font-size: 60px;
+    }
+
+    .banner-text-item {
+        width: 90%;
+        padding: 5% 5%;
+    }
+
+    .banner-text-item input,
+    .banner-text-item .date,
+    .banner-text-item .book {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .banner-text-item input {
+        width: 80%;
+    }
+
+    .banner-text-item .date {
+        width: 35%;
+    }
+
+    .banner-text-item .book {
+        width: 35%;
+    }
+
+    .service-item {
+        padding: 30px 5px;
+        margin: 100px 20px;
+    }
+
+    .service-item h2 {
+        font-size: 14px;
+        width: 80px;
+    }
+
+    .service-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .places-text h2 {
+        font-size: 40px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .cards .text {
+        line-height: 30px;
+    }
+
+    .cards .card-box {
+        font-size: 14px;
+    }
+
+    .cards .cost {
+        font-size: 16px;
+    }
+
+    .zoom-img {
+        height: 250px;
+    }
+
+    .zoom-img .img-card img {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .about {
+        padding: 50px;
+    }
+
+    .about-img img {
+        width: 300px;
+        height: 400px;
+    }
+
+    .about-text h2 {
+        font-size: 40px;
+        width: 350px;
+    }
+
+    .about-text p {
+        width: 350px;
+        line-height: 20px;
+    }
+
+    .about-text a {
+        width: 120px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .nav-bar {
+        /* Mobile styles for nav-bar */
+        height: auto; /* Remove fixed height to allow for content adjustment */
+        display: flex; /* Display elements in a row */
+        justify-content: space-between; /* Space the elements evenly along the row */
+        align-items: center; /* Center-align the elements vertically */
+        padding: 10px; /* Adjust padding as needed */
+      }
+    
+      .logo {
+        font-size: 30px;
+        margin-left: 0; /* Remove the left margin to center the logo */
+      }
+    
+      ul.menu {
+        display: flex; /* Display menu items in a row */
+        justify-content: center; /* Center-align the menu items horizontally */
+        align-items: center; /* Center-align the menu items vertically */
+        margin-right: 20px; /* Add some right margin to separate from the logo */
+      }
+    
+      .menu li {
+        margin: 0 10px; /* Add spacing between menu items */
+      }
+
+    .banner-heading h1 {
+        font-size: 60px;
+    }
+
+    .banner-text-item {
+        width: 90%;
+        padding: 5% 5%;
+    }
+
+    .banner-text-item input,
+    .banner-text-item .date,
+    .banner-text-item .book {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .banner-text-item input {
+        width: 80%;
+    }
+
+    .banner-text-item .date {
+        width: 35%;
+    }
+
+    .banner-text-item .book {
+        width: 35%;
+    }
+
+    .service-item {
+        padding: 30px 5px;
+        margin: 100px 20px;
+    }
+
+    .service-item h2 {
+        font-size: 14px;
+        width: 80px;
+    }
+
+    .service-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .places-text h2 {
+        font-size: 40px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .cards .text {
+        line-height: 30px;
+    }
+
+    .cards .card-box {
+        font-size: 14px;
+    }
+
+    .cards .cost {
+        font-size: 16px;
+    }
+
+    .zoom-img {
+        height: 250px;
+    }
+
+    .zoom-img .img-card img {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .about {
+        padding: 50px;
+    }
+
+    .about-img img {
+        width: 300px;
+        height: 400px;
+    }
+
+    .about-text h2 {
+        font-size: 40px;
+        width: 350px;
+    }
+
+    .about-text p {
+        width: 350px;
+        line-height: 20px;
+    }
+
+    .about-text a {
+        width: 120px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Laptops and Desktops */
+@media (min-width: 1025px) {
+    /* Your desktop and laptop styles here */
+    .about-img {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    
+      .about-img img {
+        width: 300px;
+        height: 400px;
+      }
+    .nav-bar {
+      height: 100px;
+    }
+  
+    .logo {
+      font-size: 40px;
+      margin-left: 50px;
+      padding: 20px;
+    }
+  
+    ul.menu {
+      display: flex;
+    }
+  
+    ul.menu li {
+      list-style: none;
+      margin-right: 30px;
+      font-size: 18px;
+      font-family: "Barlow Condensed";
+    }
+  
+    .banner-heading h1 {
+      font-size: 90px;
+    }
+  
+    .banner-text-item {
+      width: 50%;
+      padding: 50px;
+    }
+  
+    .banner-text-item input,
+    .banner-text-item .date,
+    .banner-text-item .book {
+      padding: 15px;
+      font-size: 18px;
+    }
+  
+    .banner-text-item input {
+      width: 50%;
+    }
+  
+    .banner-text-item .date {
+      width: 20%;
+    }
+  
+    .banner-text-item .book {
+      width: 20%;
+    }
+  
+    .service-item {
+      padding: 50px 20px;
+      margin: 180px 50px;
+    }
+  
+    .service-item h2 {
+      font-size: 18px;
+      width: 120px;
+    }
+  
+    .service-item img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .places-text h2 {
+      font-size: 55px;
+    }
+  
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 30px;
+    }
+  
+    .card img {
+      height: 300px;
+    }
+  
+    .cards .text {
+      line-height: 50px;
+    }
+  
+    .cards .card-box {
+      font-size: 18px;
+    }
+  
+    .cards .cost {
+      font-size: 20px;
+    }
+  
+    .zoom-img {
+      height: 320px;
+    }
+  
+    .zoom-img .img-card img {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    .about {
+      padding: 150px;
+    }
+  
+    .about-img img {
+      width: 500px;
+      height: 700px;
+    }
+  
+    .about-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+    
+      .about-text h2 {
+        font-size: 40px;
+        width: 450px;
+        margin-right: 50px;
+      }
+    
+      .about-text p {
+        width: 500px;
+        line-height: 30px;
+      }
+    
+      .about-text a {
+        width: 180px;
+        padding: 20px;
+        font-size: 14px;
+      }
+    }
+
+
+
+
+
+
+
+

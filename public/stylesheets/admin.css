@@ -1,0 +1,323 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .content {
+    flex: 1;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .sidebar a:hover {
+    text-decoration: underline;
+  }
+
+  .header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .edit-btn {
+    background-color: #4CAF50;
+  }
+
+  .delete-btn {
+    background-color: #f44336;
+  }
+  
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #333;
+    color: #fff;
+  }
+
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+
+  .edit-form {
+    width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  background-color: #1d1c1c;
+  position: absolute;
+  top: 240px; /* Adjust the value as needed */
+  left: 10%; /* Adjust the value as needed */
+  transform: translateX(-50%);
+  }
+  
+  .edit-form h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .edit-form form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .edit-form label {
+    font-weight: bold;
+  }
+  
+  .edit-form input[type="text"],
+  .edit-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #141414;
+    border-radius: 4px;
+  }
+  
+  .edit-form button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+ 
+
+  .edit1-form {
+    display: none;
+    margin-top: 1px;
+    padding: 50px;
+    border: 1px solid #242424;
+    border-radius: 10px;
+    background-color: #1d1c1c;
+  }
+  
+  .edit1-form h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .edit1-form form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .edit1-form label {
+    font-weight: bold;
+  }
+  
+  .edit1-form input[type="text"],
+  .edit1-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #141414;
+    border-radius: 4px;
+  }
+  
+  .edit1-form button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit1-form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+
+  .editf-form {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    background-color: #1d1c1c;
+    position: absolute;
+    top: 150px; /* Adjust the value as needed */
+    left: 80%; /* Adjust the value as needed */
+    transform: translateX(-50%);
+  }
+  
+  .editf-form h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .editf-form form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .editf-form label {
+    font-weight: bold;
+  }
+  
+  .editf-form input[type="text"],
+  .editf-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #141414;
+    border-radius: 4px;
+  }
+  
+  .editf-form button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .editf-form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+
+  .edith-form {
+    width: 150px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    background-color: #1d1c1c;
+    position: absolute;
+    top: 300px; /* Adjust the value as needed */
+    left: 80px; /* Adjust the value as needed */
+    transform: translateX(-50%);
+  }
+  
+  .edith-form h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .edith-form form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .edith-form label {
+    font-weight: bold;
+  }
+  
+  .edith-form input[type="text"],
+  .edith-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #141414;
+    border-radius: 4px;
+  }
+  
+  .edith-form button[type="submit"] {
+    padding: 3px 7px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edith-form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  .editd-form {
+    width: 150px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    background-color: #1d1c1c;
+    position: absolute;
+    top: 320px; /* Adjust the value as needed */
+    left: 80px; /* Adjust the value as needed */
+    transform: translateX(-50%);
+  }
+  
+  .editd-form h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .editd-form form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .editd-form label {
+    font-weight: bold;
+  }
+  
+  .editd-form input[type="text"],
+  .editd-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #141414;
+    border-radius: 4px;
+  }
+  
+  .editd-form button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .editd-form button[type="submit"]:hover {
+    background-color: #45a049;
+  }

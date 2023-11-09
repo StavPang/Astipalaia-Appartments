@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Campy </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+    </head>
+    <body>
+        <section class="nav-bar">
+            <div class="logo">Astypalea</div>
+            <ul class="menu">
+                <li><a href="/">home</a></li>
+                <li><a href="/new">Events</a></li>
+                <li><a href="/generic">Generic Informations</a></li>
+                <li><a href="contacts">contact us</a></li>
+                <% if(!currentUser){ %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Sign Up</a></li>
+                       
+                    
+                    
+                    
+                <% } else { %>
+                    <li><a href="#">Edit your profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                <% } %>
+            </ul>
+            </div>
+        
+        </section>
+    
+
+    <div class="container">
+
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>

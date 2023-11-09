@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Events Ticket Card</title>
+  <style>
+    /* Add your custom CSS styles here */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .event-card {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+     
+    
+    .event-card1 {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.5;
+}
+
+    .event-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .event-info {
+      padding: 20px;
+    }
+
+    .event-info h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .event-info p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .event-info .location {
+      color: #666;
+    }
+
+    .event-info .description {
+      margin-bottom: 20px;
+    }
+
+    .event-info .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1E90FF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+
+    .event-info .btn:hover {
+      background-color: #ADD8E6;
+    }
+
+    .event-list {
+      width: 50%;
+      float: left;
+      
+    }
+
+
+    .event-list:last-child {
+      float: right;
+    }
+
+    .completed {
+      background-color: #f8f9fa;
+      border: 2px solid #28a745;
+     
+    }
+
+   
+
+
+    .uncompleted {
+      background-color: #f8f9fa;
+      border: 2px solid #dc3545;
+    }
+    .nav-bar {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 90px;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px lightslategray;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.logo {
+    flex: 1;
+    font-size: 40px;
+    padding: 20px;
+    margin-left: 50px;
+    font-family: Satisfy;
+}
+
+ul.menu {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.menu li {
+    flex: 1;
+    list-style-type: none;
+    font-size: 16px;
+    font-family: "Barlow Condensed";
+    text-align: center;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.menu li a:hover {
+    color: midnightblue;
+    text-decoration: underline;
+}
+action {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1E90FF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .action:hover {
+    background-color: #ADD8E6;
+    transform: scale(1.05);
+  }
+  
+
+
+  </style>
+</head>
+<body>
+  <section class="nav-bar">
+    <div class="logo">Astypalea</div>
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/new">Events</a></li>
+        <li><a href="/generic">Generic Informations</a></li>
+        <li><a href="/contactus">contact us</a></li>
+    </ul>
+    </div>
+
+</section>
+
+
+<div class="container">
+  
+  <div class="event-list animated fadeInLeft">
+    <h2 class="completed">Completed Events</h2>
+    
+    <% compevent.forEach(function(event) { %>
+    <div class="event-card1">
+      <img src="<%= event.image %>" alt="Event Image">
+      <div class="event-info">
+        <h3><%= event.title %></h3>
+        <p class="location"><%= event.location %></p>
+        <p>Date and Time: <%= event.datetime %></p>
+        <p class="description"><%= event.description %></p>
+        <button class="action" data-datetime="<%= event.datetime %>" data-id="<%= event.title %>">Book it</button>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+  
+  <div class="event-list animated fadeInRight">
+    <h2 class="uncompleted">Uncompleted Events</h2>
+    <% data.forEach(function(event) { %>
+    <div class="event-card">
+      <img src="<%= event.image %>" alt="Event Image">
+      <div class="event-info">
+        <h3><%= event.title %></h3>
+        <p class="location"><%= event.location %></p>
+        <p>Date and Time: <%= event.datetime %></p>
+        <p class="description"><%= event.description %></p>
+        <button class="action" data-datetime="<%= event.datetime %>" data-id="<%= event.title %>">Book it</button>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  // Initialize WOW.js for animations
+  new WOW().init();
+
+  // Define an AJAX script that makes a GET request to the server
+  $('.action').click(function() {
+    // Get the item ID from the data-id attribute of the button
+    const itemId = $(this).data('id');
+    const itemdatetime = $(this).data('datetime');
+    console.log(itemdatetime);
+    alert(itemId, itemdatetime);
+    window.location.href = "/book?datetime=" + itemdatetime + "&title=" + itemId;
+  });
+</script>
+</body>
+</html>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+    // Initialize WOW.js for animations
+    new WOW().init();
+  </script>
+</body>
+</html>

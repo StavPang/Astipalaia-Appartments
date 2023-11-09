@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Campy</title>
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+
+        <!--===========Nav Bar=================-->
+        <section class="nav-bar">
+            <div class="logo">Astypalea</div>
+            <ul class="menu">
+                <li><a href="#">home</a></li>
+                <li><a href="#">tours</a></li>
+                <li><a href="#">package</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">contact us</a></li>
+            </ul>
+            </div>
+        
+        </section>
+
+        <section class="places">
+            <div class="places-text">
+                
+                <h2>Που θα διασκεδασω?</h2>
+            </div>
+        
+            <div class="cards">
+             <% fun.forEach(function(funs) { %>  
+                <div class="card">
+                    <div class="card-body">
+                      
+                      <h5 class="card-title">Title:<%=funs.title %></h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Location:<%=funs.location %></h6>
+                      <p class="card-text">Phone:<%=funs.phone %></p>
+                      <p class="card-text">Description:<%=funs.description %></p>
+                    </div>
+                  </div>
+                  <% }) %>    
+        
+                
+        
+                
+            </div>
+
+            
+            
+        </section>
+</body>
+</html>
+<style>
+    .card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+</style>

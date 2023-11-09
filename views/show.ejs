@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="interactive-map.js"></script>
+<script >src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script
+	type="text/javascript">
+  $(function(){
+    $("#man1").hide()
+		$("#man2").hide()
+		$("#man3").hide()
+    $("#yeyo").hide()
+      
+  var selectedSeatsArray = [];  
+  $(".seatNumber").click( 
+       
+        function () {
+          var select = document.getElementById('count');
+          var option = select.options[select.selectedIndex];
+		       console.log(option.value)
+            if (!$(this).hasClass("seatUnavailable")){
+                // If selected, unselect it
+                if ($(this).hasClass("seatSelected")) {
+                    var thisId = $(this).attr('id');
+                    var price = $('#seatsList .' + thisId).val();
+                    $(this).removeClass("seatSelected");
+                    $('#seatsList .' + thisId).remove();
+                    // Calling functions to update checkout total and seat counter.
+                    removeFromCheckout(price);
+                    refreshCounter();
+                }
+                else {
+                    // else, select it
+                    // getting values from Seat
+                    var thisId = $(this).attr('id');
+                    var id = thisId.split("_");
+                    var price = $(this).attr('value');
+                    var seatDetails = "Row: " + id[0] + " Seat:" + id[1] + " Price:CA$:" + price;
+                    
+                   
+                    var freeSeats = parseInt($('.freeSeats').first().text());
+                    var selectedSeats = parseInt($(".seatSelected").length);
+                    
+                    
+                    // If you have free seats available the price of this one will be 0.
+                    if (selectedSeats < freeSeats) {
+                        price = 0;
+                    }
+                  if(selectedSeats < option.value){
+                    // Adding this seat to the list
+                    var seatDetails = "Row: " + id[0] + " Seat:" + id[1] + " Price:CA$:" + price;
+                    $("#seatsList").append('<li value=' + price + ' class=' + thisId + '>' + seatDetails + "  " + "<button id='remove:" + thisId + "'+ class='btn btn-default btn-sm removeSeat' value='" + price + "'><strong>X</strong></button></li>");
+                    $(this).addClass("seatSelected");
+                   console.log(seatDetails)
+                     // Creating array with rows and seats
+                     var seatDetailsArray = [id[0], id[1]]; // Create an array with row and seat details
+                      selectedSeatsArray.push(seatDetailsArray); 
+                     console.log(selectedSeatsArray)     
+                    addToCheckout(price);
+                    refreshCounter();
+                    }
+                }
+            }
+        }
+    );
+    // Clicking any of the dynamically-generated X buttons on the list
+    $(document).on('click', ".removeSeat", function () {
+        // Getting the Id of the Seat
+        var id = $(this).attr('id').split(":");
+        var price = $(this).attr('value')
+        $('#seatsList .' + id[1]).remove();
+        $("#" + id[1] + ".seatNumber").removeClass("seatSelected");
+        removeFromCheckout(price);
+        refreshCounter();
+      }
+  );
+    // Show tooltip on hover.
+    $(".seatNumber").hover(
+        function () {
+            if (!$(this).hasClass("seatUnavailable")) {
+                var id = $(this).attr('id');
+                var id = id.split("_");
+                var price = $(this).attr('value');
+                var tooltip = "Row: " + id[0] + " Seat:" + id[1] + " Price:CA$:" + price;
+
+                $(this).prop('title', tooltip);
+            } else
+            {
+                $(this).prop('title', "Seat unavailable");
+            }
+        }
+        );
+    // Function to refresh seats counter
+    function refreshCounter() {
+        $(".seatsAmount").text($(".seatSelected").length); 
+        
+
+    }
+    // Add seat to checkout
+    function addToCheckout(thisSeat) {
+        var seatPrice = parseInt(thisSeat);
+        var num = parseInt($('.txtSubTotal').text());
+        num += seatPrice;
+        num = num.toString();
+        $('.txtSubTotal').text(num);
+    }
+    // Remove seat from checkout
+    function removeFromCheckout(thisSeat) {
+        var seatPrice = parseInt(thisSeat);
+        var num = parseInt($('.txtSubTotal').text());
+        num -= seatPrice;
+        num = num.toString();
+        $('.txtSubTotal').text(num);
+
+    }
+
+    // Clear seats.
+    $("#btnClear").click(
+        function () {
+            console.log($('.txtSubTotal').text())
+            $('.txtSubTotal').text(0);
+            $(".seatsAmount").text(0);
+            $('.seatSelected').removeClass('seatSelected');
+            $('#seatsList li').remove();
+        }
+    );
+    $("#btnCheckout").click(
+        function  () {
+          
+          
+          $("#yeyo").show()
+    
+          
+         
+          
+          
+        }
+
+   )  
+  $(document).ready(() => {
+    $('#myButton').click(() => {
+      const formData = {};
+      const urlParams = new URLSearchParams(window.location.search);
+      const datetime = urlParams.get('datetime');
+      const title =  urlParams.get('title');
+      console.log(datetime)
+
+// Get the values from the input fields
+      formData.name = $("input[name='name']").val();
+      formData.phone = $("input[name='phone']").val();
+      formData.name1 = $("input[name='name1']").val();
+      formData.phone1 = $("input[name='phone1']").val();
+      formData.name2 = $("input[name='name2']").val();
+      formData.phone2 = $("input[name='phone2']").val();
+      formData.name3 = $("input[name='name3']").val();
+      formData.phone3 = $("input[name='phone3']").val();
+      formData.selectedOption = $("select[name='selectedOption']").val();
+      formData.num1 = $("input[name='num1']").val();
+      formData.num2 = $("input[name='num2']").val();
+      formData.num3 = $("input[name='num3']").val();
+      formData.num4 = $("input[name='num4']").val();
+      console.log(formData)
+$.ajax({
+    type: "post",
+     url: "/book",
+    data: {subtotal:$('.txtSubTotal').text(),
+            seats: selectedSeatsArray, datetime: datetime,form: formData , title:title },
+  success: function(response) {
+        console.log("Success: " + response);
+      },
+      error: function(xhr, status, error) {
+        console.log("Error: " + error);
+      }
+
+});
+
+
+
+});
+   });
+  });
+  
+   
+ 
+  
+   
+
+
+
+    
+    
+    
+
+      function update1(){
+          var selector = document.getElementById('type');
+          var opt = selector.options[selector.selectedIndex]
+          var type1 = opt.value
+          console.log(type1)
+
+      }
+    
+      function update(){
+      var select = document.getElementById('count');
+      var option = select.options[select.selectedIndex];
+		  console.log(option.value)
+      if(option.value==2){
+        $("#man1").hide()
+			  $("#man2").hide()
+			  $("#man3").hide()
+			  $("#man1").show()
+			  
+      }else if(option.value==3){
+        $("#man1").hide()
+			  $("#man2").hide()
+			  $("#man3").hide()
+        $("#man1").show()
+        $("#man2").show()
+			  
+
+      }else if(option.value==4){
+        $("#man1").hide()
+			  $("#man2").hide()
+			  $("#man3").hide()
+        $("#man1").show()
+        $("#man2").show()
+        $("#man3").show()
+      }else{
+        $("#man1").hide()
+			  $("#man2").hide()
+			  $("#man3").hide()
+      }
+      
+    }
+    update()
+</script>
+<title>Music Artist Booking Form</title>
+</head>
+<body>
+<div class="row">
+  <div class="col-75">
+    <div class="container1">
+        <h2> Booking Form</h2>
+        
+        <div class="w3-content w3-section" style="max-width:550px">
+          <img class="mySlides" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr8zDknL9UMt1bh8yiSm14wjBnrDPyvVHyIDReGDsYZ-BoPXQw8iULnZttFyCrBqPbZYI&usqp=CAU" style="width:100%">
+          
+        </div>
+  <form action="/book" method="POST" id="myForm">
+        <div class="agileits-right semester">
+					Number of Visitors:   
+				<select  id="count" onchange="update()" >
+					<option value="1">1</option>
+					<option value="2" >2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select> </br></br>
+				</div>
+          
+         <div class="row">
+             
+     </div>
+     <div class="seatSelection col-lg-12">
+      <p class="seatSection">
+       Your first
+          <span class="freeSeats">2</span> seats selected will be Free.<br /> You can add more seats and proceed to check out.
+      </p>
+      <div class="seatsChart col-lg-6">
+          <div class="seatRow">
+              <div class="seatRowNumber">
+                  Row 1
+              </div>
+              <div id="1_1" title="" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">1</div>
+              <div id="1_2" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">2</div>
+              <div id="1_3" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">3</div>
+              <div id="1_4" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">4</div>
+              <div id="1_5" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">5</div>
+              <div id="1_6" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber  ">6</div>
+              <div id="1_7" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">7</div>
+              <div id="1_8" role="checkbox" value="45" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">8</div>
+
+
+          </div>
+          <div class="seatRow">
+              <div class="seatRowNumber">
+                  Row 2
+              </div>
+              <div id="2_1" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">1</div>
+              <div id="2_2" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">2</div>
+              <div id="2_3" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">3</div>
+              <div id="2_4" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">4</div>
+              <div id="2_5" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">5</div>
+              <div id="2_6" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber  ">6</div>
+              <div id="2_7" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">7</div>
+              <div id="2_8" role="checkbox" value="42" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">8</div>
+
+          </div>
+          <div class="seatRow">
+              <div class="seatRowNumber">
+                  Row 3
+              </div>
+              <div id="3_1" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">1</div>
+              <div id="3_2" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">2</div>
+              <div id="3_3" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">3</div>
+              <div id="3_4" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">4</div>
+              <div id="3_5" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">5</div>
+              <div id="3_6" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber  ">6</div>
+              <div id="3_7" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">7</div>
+              <div id="3_8" role="checkbox" value="38" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">8</div>
+
+          </div>
+          <div class="seatRow">
+              <div class="seatRowNumber">
+                  Row 4
+              </div>
+              <div id="4_1" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">1</div>
+              <div id="4_2" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">2</div>
+              <div id="4_3" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">3</div>
+              <div id="4_4" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">4</div>
+              <div id="4_5" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">5</div>
+              <div id="4_6" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable ">6</div>
+              <div id="4_7" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">7</div>
+              <div id="4_8" role="checkbox" value="30" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">8</div>
+
+          </div>
+          <div class="seatRow">
+              <div class="seatRowNumber">
+                  Row 5
+              </div>
+              <div id="5_1" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">1</div>
+              <div id="5_2" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">2</div>
+              <div id="5_3" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">3</div>
+              <div id="5_4" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable">4</div>
+              <div id="5_5" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">5</div>
+              <div id="5_6" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber seatUnavailable ">6</div>
+              <div id="5_7" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">7</div>
+              <div id="5_8" role="checkbox" value="28" aria-checked="false" focusable="true" tabindex="-1" class=" seatNumber ">8</div>
+          </div>
+      </div>
+      <div class="seatsReceipt col-lg-2">
+          <p><strong>Selected Seats: <span class="seatsAmount" />0 </span></strong> <button id="btnClear" class="btn">Clear</button></p>
+          <ul id="seatsList" class="nav nav-stacked"></ul>
+
+      </div>
+  </div>
+
+  <div class="checkout col-lg-offset-6">
+      
+      <div class="row">
+        <div class="col-50">
+            <input type="text" name="name"  placeholder="Name">
+        </div>
+        <div class="col-50">
+           <input type="number" name="phone"  placeholder="Phone">
+       </div>
+        
+     </div>
+     
+
+     <div class="row" id="man1">
+      <div class="col-50">
+          <input type="text" name="name1"  placeholder="Name">
+      </div>
+      <div class="col-50">
+         <input type="number" name="phone1"  placeholder="Phone">
+     </div>
+         
+   </div>
+
+   <div class="row" id="man2">
+    <div class="col-50">
+        <input type="text" name="name2"  placeholder="Name">
+    </div>
+    <div class="col-50">
+       <input type="number" name="phone2"  placeholder="Phone">
+   </div>
+       
+ </div>
+
+ <div class="row" id="man3">
+  <div class="col-50">
+      <input type="text" name="name3"  placeholder="Name">
+  </div>
+  <div class="col-50">
+     <input type="number" name="phone3"  placeholder="Phone">
+ </div>
+ 
+</div>
+
+<span>Subtotal: CA$</span><span class="txtSubTotal">0.00</span><br /><button id="btnCheckout" name="btnCheckout" class="btn btn-primary"> Check out </button> 
+  
+<div class="row" id="yeyo">
+    Card Type:
+    <select name="selectedOption"  id="mySelect"  >
+      <option value="Prepade Card">Prepade Card</option>
+      <option value="Mastercard" >Mastercard</option>
+      <option value="Crypto Card">Crypto Card</option>
+      
+    </select> </br></br>
+    
+    <div class="col-50">
+      Card Number:
+       <input type="text" name="num1" maxlength="4" required placeholder="">
+   </div> 
+    <div class="col-50">
+      <input type="text" name="num2" maxlength="4" required placeholder="">
+    </div>
+    <div class="col-50">
+      <input type="text" name="num3" maxlength="4" required placeholder="">
+    </div>
+    <div class="col-50">
+      <input type="text" name="num4" maxlength="4" required placeholder="">
+    </div> 
+</div>
+  
+
+         <input type="submit" value="next" id="myButton" class="btn">
+       </div>
+        </div>
+        </div>
+
+</form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<style>
+
+  
+
+  body {
+  font-family: Arial;
+  font-size: 16px;
+  padding: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 100%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+   max-width:500px;
+margin:auto;
+}
+
+.container1 {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+   max-width:600px;
+margin:auto;
+}
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=datetime-local] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+
+input[type=email],textarea, select {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=number] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=time] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=date] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="text"].small-input {
+  display: inline-block;
+  width: 45%;
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-right: 5%;
+}
+
+input[type="text"].small-input:last-child {
+  margin-right: 0;
+}
+
+
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 6px;
+  margin: 5px 0;
+  border: none;
+  width: 100%;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn2 {
+  background-color: #04AA6D;
+  color: white;
+  padding: 6px;
+  margin: 5px 0;
+  border: none;
+  width: 30%;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.seatSelection {
+  text-align: center;
+  padding: 5px;
+	margin: 15px;}
+
+.seatsReceipt {text-align: center;}
+
+.seatNumber {
+	display: inline;
+	padding: 10px;
+	background-color: #5c86eb;
+	color: #FFF;
+	border-radius: 5px;
+	cursor: default;
+	height: 25px;
+	width: 25px;
+	line-height: 25px;
+	text-align: center;
+ }
+
+.seatRow {padding: 10px;}
+
+.seatSelected {
+	background-color: lightgreen;
+	color: black;
+ }
+
+.seatUnavailable {background-color: gray;}
+
+.seatRowNumber {
+	clear: none;
+	display: inline;
+ }
+
+.hidden {display: none;}
+
+.seatsAmount {max-width: 2em;}
+
+
+
+
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 400px) {
+  .row {
+    flex-direction: column;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+

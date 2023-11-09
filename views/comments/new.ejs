@@ -1,0 +1,302 @@
+<head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script >src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	
+
+        <meta charset="UTF-8">
+        <meta name="author" content="Sahil Kumar">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Contact Form Bootstrap</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+        <script
+	type="text/javascript">
+     $(document).ready(function() {   
+        $("form").submit(function(event) {
+    event.preventDefault(); // prevent the form from submitting
+
+    var selectedValue = $("#mySelect").val();
+    var mes = $("#msg").val();
+    console.log("Selected value: " + selectedValue , msg);
+    $.ajax({
+      type: "post",
+      url: "/comments/createcomm",
+      data: {inputValue: selectedValue , message:mes},
+      success: function(response) {
+        console.log("Success: " + response);
+      },
+      error: function(xhr, status, error) {
+        console.log("Error: " + error);
+      }
+    });
+  });
+
+
+    // call other functions or send the selected value to the server using AJAX
+  });
+    
+
+        </script>
+
+      </head>
+      
+      <body class="bg-dark"  >
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mt-5 bg-light rounded">
+              <h1 class="text-center font-weight-bold text-primary">Rate our Services</h1>
+              <h3 class ="text-center font-weight-bold text-primary"> Current User: <%= users.username %> </h3>
+              <hr class="bg-light">
+              <h5 class="text-center text-success"></h5>
+              <form action="" method="" id="form-box" class="p-2">
+               
+                <label for="my-select">Choose Event:</label>
+                <div class="form-group input-group">
+                        
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  
+                  <select name="selectedValue" class="form-select" id="mySelect" aria-label="My selection list">
+                        <% books.forEach(function(item) { %>
+                          <option value="<%= item %>"><%= item %></option>
+                        <% }); %>
+                      </select>
+                </div>
+                <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
+                  </div>
+                  <textarea name="msg" id="msg" class="form-control" placeholder="Write your message" cols="30" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                  <input type="submit"  name="submit" id="submit" class="btn btn-primary btn-block" value="Send">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </body>
+  
+    
+<div class="container">
+<div class="be-comment-block">
+	<h1 class="comments-title">Comments </h1>
+<% let counter = 0; %>
+<% comments.forEach(function(item ) { %> 
+  <% if (counter % 2 === 0) { %> 
+	<div class="be-comment">
+		<div class="be-img-comment">	
+			<a href="blog-detail-2.html">
+				<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+			</a>
+		</div>
+		<div class="be-comment-content">
+			
+				<span class="be-comment-name">
+					<a href=""><%= item.userid %></a>
+					</span>
+                <span class="be-comment-time">
+                    
+                        <%= item.title %>
+                </span>    
+				
+
+			<p class="be-comment-text">
+				<%= item.text %>
+			</p>
+		</div>
+	</div>
+  <% } else { %>
+	<div class="be-comment">
+		<div class="be-img-comment">	
+			<a href="blog-detail-2.html">
+				<img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="be-ava-comment">
+			</a>
+		</div>
+		<div class="be-comment-content">
+			<span class="be-comment-name">
+				<a href="blog-detail-2.html"><%= item.userid %></a>
+			</span>
+			<span class="be-comment-time">
+				
+				<%= item.title %>
+			</span>
+			<p class="be-comment-text">
+				<%= item.text %>
+			</p>
+		</div>
+	</div>
+    <% } %>
+    <% counter++; %>
+<% }); %>
+	<div class="be-comment">
+		<div class="be-img-comment">	
+			<a href="blog-detail-2.html">
+				<img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" class="be-ava-comment">
+			</a>
+		</div>
+		<div class="be-comment-content">
+			<span class="be-comment-name">
+				<a href="blog-detail-2.html">Cüneyt ŞEN</a>
+			</span>
+			<span class="be-comment-time">
+				<i class="fa fa-clock-o"></i>
+				May 27, 2015 at 3:14am
+			</span>
+			<p class="be-comment-text">
+				Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant
+			</p>
+		</div>
+	</div>
+
+
+
+    <style>
+.container {
+ background-color: #f7f7f7;
+}        
+
+
+        body{margin-top:20px;}
+.btn.btn-outline-primary:hover, .bg-primary {
+    background-color: #0cb4ce !important;
+}
+.section-medium {
+    padding: 55px 0px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.my-select{
+  display: block;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px; 
+}
+
+  .be-comment-block {
+    margin-bottom: 50px !important;
+    border: 1px solid #edeff2;
+    border-radius: 2px;
+    padding: 50px 70px;
+    border:1px solid #ffffff;
+}
+
+.comments-title {
+    font-size: 16px;
+    color: #262626;
+    margin-bottom: 15px;
+    font-family: 'Conv_helveticaneuecyr-bold';
+}
+
+.be-img-comment {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-bottom: 15px;
+}
+
+.be-ava-comment {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.be-comment-content {
+    margin-left: 80px;
+}
+
+.be-comment-content span {
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 15px;
+}
+
+.be-comment-name {
+    font-size: 13px;
+    font-family: 'Conv_helveticaneuecyr-bold';
+}
+
+.be-comment-content a {
+    color: #383b43;
+}
+
+.be-comment-content span {
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 15px;
+}
+
+.be-comment-time {
+    text-align: right;
+}
+
+.be-comment-time {
+    font-size: 15px;
+    color: #0b40ec;
+}
+
+.be-comment-text {
+    font-size: 13px;
+    line-height: 18px;
+    color: #7a8192;
+    display: block;
+    background: #f6f6f7;
+    border: 1px solid #edeff2;
+    padding: 15px 20px 20px 20px;
+}
+
+.form-group.fl_icon .icon {
+    position: absolute;
+    top: 1px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    background: #f6f6f7;
+    color: #b5b8c2;
+    text-align: center;
+    line-height: 50px;
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.form-group .form-input {
+    font-size: 13px;
+    line-height: 50px;
+    font-weight: 400;
+    color: #b4b7c1;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #edeff2;
+    border-radius: 3px;
+}
+
+.form-group.fl_icon .form-input {
+    padding-left: 70px;
+}
+
+.form-group textarea.form-input {
+    height: 150px;
+}
+
+    </style>

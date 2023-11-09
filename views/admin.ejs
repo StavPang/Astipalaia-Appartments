@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script >src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+  <title>Admin Dashboard</title>
+
+  <script
+	type="text/javascript">
+    $(function(){
+    $("#yeyo").hide()
+		$("#yoyo").hide()
+    $("#yaya").hide()
+    $("#food").hide()
+    $("#hotel").hide()
+    $("#drink").hide()
+    $("#contact").hide()
+views/admin.ejs
+    })
+    $(document).click(function(event) {
+    if (!$(event.target).closest("#edit-form").length && !$(event.target).is(".edit-btn")) {
+      $("#edit-form").hide();views/admin.ejs
+    }
+
+    if (!$(event.target).closest("#edit1-form").length && !$(event.target).is(".btn-edit")) {
+      $("#edit1-form").hide();
+    }
+
+    if (!$(event.target).closest("#editf-form").length && !$(event.target).is(".btn-fedit")) {
+      $("#editf-form").hide();
+    }
+
+    if (!$(event.target).closest("#edith-form").length && !$(event.target).is(".btn-hedit")) {
+      $("#edith-form").hide();
+    }
+
+    if (!$(event.target).closest("#editd-form").length && !$(event.target).is(".btn-dedit")) {
+      $("#editd-form").hide();
+    }
+  });
+    $(document).ready(function() {
+        $(".edit-btn").click(function(event) {
+        event.preventDefault();
+
+        // Get the values from the row
+        var userId = $(this).closest("tr").find(".user-id").text();
+        var userName = $(this).closest("tr").find(".user-name").text();
+        var userEmail = $(this).closest("tr").find(".user-email").text();
+        var userPhone = $(this).closest("tr").find(".user-phone").text();
+        $("#edit-user-id").val(userId);
+        $("#edit-user-name").val(userName);
+        $("#edit-user-email").val(userEmail);
+        $("#edit-user-phone").val(userPhone);
+
+        // Show the edit form
+        $("#edit-form").show();
+
+        // Your code for handling the edit button click goes here
+
+        // For example, you can display the values in the console
+        console.log("Edit button clicked for user ID: " + userId);
+        console.log("User name: " + userName);
+        console.log("User email: " + userEmail);
+      });
+
+      $(".btn-fedit").click(function(event) {
+        event.preventDefault();
+
+        // Get the values from the row
+        
+        var foodTitle = $(this).closest("tr").find(".food-title").text();
+        var foodLocation = $(this).closest("tr").find(".food-location").text();
+        var foodPhone = $(this).closest("tr").find(".food-phone").text();
+        var foodDescription = $(this).closest("tr").find(".food-description").text();
+        $("#editf-food-title").val(foodTitle);
+        $("#editf-food-location").val(foodLocation);
+        $("#editf-food-phone").val(foodPhone);
+        
+        $("#editf-food-description").val(foodDescription);
+
+        // Show the edit form
+        $("#editf-form").show();
+
+        // Your code for handling the edit button click goes here
+
+        // For example, you can display the values in the console
+       
+        console.log("Event title: " + foodTitle);
+        console.log("Event Location: " + foodLocation);
+        //console.log("Event Price" +eventPrice)
+       
+
+    });
+
+    $(".btn-hedit").click(function(event) {
+        event.preventDefault();
+
+        // Get the values from the row
+        
+        var hotelTitle = $(this).closest("tr").find(".hotel-title").text();
+        var hotelLocation = $(this).closest("tr").find(".hotel-location").text();
+        var hotelPhone = $(this).closest("tr").find(".hotel-phone").text();
+        var hotelDescription = $(this).closest("tr").find(".hotel-description").text();
+        $("#edith-hotel-title").val(hotelTitle);
+        $("#edith-hotel-location").val(hotelLocation);
+        $("#edith-hotel-phone").val(hotelPhone);
+        
+        $("#edith-hotel-description").val(hotelDescription);
+
+        // Show the edit form
+        $("#edith-form").show();
+
+        // Your code for handling the edit button click goes here
+
+        // For example, you can display the values in the console
+       
+        console.log("Event title: " + hotelTitle);
+        console.log("Event Location: " + hotelLocation);
+        //console.log("Event Price" +eventPrice)
+       
+
+    });
+
+
+
+
+    $(".btn-dedit").click(function(event) {
+        event.preventDefault();
+
+        // Get the values from the row
+        
+        var drinkTitle = $(this).closest("tr").find(".drink-title").text();
+        var drinkLocation = $(this).closest("tr").find(".drink-location").text();
+        var drinkPhone = $(this).closest("tr").find(".drink-phone").text();
+        var drinkDescription = $(this).closest("tr").find(".drink-description").text();
+        $("#editd-drink-title").val(drinkTitle);
+        $("#editd-drink-location").val(drinkLocation);
+        $("#editd-drink-phone").val(drinkPhone);
+        
+        $("#editd-drink-description").val(drinkDescription);
+
+        // Show the edit form
+        $("#editd-form").show();
+
+        // Your code for handling the edit button click goes here
+
+        // For example, you can display the values in the console
+       
+        console.log("Event title: " + drinkTitle);
+        console.log("Event Location: " + drinkLocation);
+        //console.log("Event Price" +eventPrice)
+       
+
+    });
+
+
+      $(".btn-edit").click(function(event) {
+        event.preventDefault();
+
+        // Get the values from the row
+        
+        var eventTitle = $(this).closest("tr").find(".event-title").text();
+        var eventLocation = $(this).closest("tr").find(".event-location").text();
+        var eventPrice = $(this).closest("tr").find(".event-price").text();
+        var eventAdress = $(this).closest("tr").find(".event-adress").text();
+        var eventDateandTime = $(this).closest("tr").find(".event-dateandtime").text();
+        var eventDescription = $(this).closest("tr").find(".event-description").text();
+        $("#edit1-event-title").val(eventTitle);
+        $("#edit1-event-location").val(eventLocation);
+        $("#edit1-event-price").val(eventPrice);
+        $("#edit1-event-adress").val( eventAdress);
+        $("#edit1-event-dateandtime").val(eventDateandTime);
+        $("#edit1-event-description").val(eventDescription);
+
+        // Show the edit form
+        $("#edit1-form").show();
+
+        // Your code for handling the edit button click goes here
+
+        // For example, you can display the values in the console
+       
+        console.log("Event title: " + eventTitle);
+        console.log("Event Location: " + eventLocation);
+        console.log("Event Price" +eventPrice)
+       
+
+    });
+
+    // Delete button click event
+$(".delete-btn").click(function(event) {
+  event.preventDefault();
+
+  // Get the values from the row
+  var userId = $(this).closest("tr").find(".user-id").text();
+
+  // Send an AJAX request to the server to delete the user
+  $.ajax({
+    url: "/delete_user", // Replace with your delete user API endpoint
+    method: "post",
+    data: { userId: userId },
+    success: function(response) {
+      console.log(response); // Log the response from the server
+      // Perform any additional actions if needed
+    },
+    error: function(xhr, status, error) {
+      console.log(error); // Log the error message
+      // Handle the error condition if needed
+    }
+  });
+});
+
+$(".btn-delete").click(function(event) {
+    event.preventDefault();
+
+    // Get the event ID from the row
+    var eventTitle = $(this).closest("tr").find(".event-title").text();
+
+    // Your code for handling the delete button click goes here
+    // Send an AJAX request to the server to delete the event with the given ID
+
+    $.ajax({
+      url: "/delete_event",
+      method: "post",
+      data: { eventTitle: eventTitle },
+      success: function(response) {
+        // Handle the successful response from the server
+        console.log("Event deleted successfully");
+        // Refresh the page or update the event list as needed
+      },
+      error: function(error) {
+        // Handle the error response from the server
+        console.log("Failed to delete event");
+      }
+    });
+  });
+
+
+
+
+
+      // Handle click event for "Users" link
+      $("a[href='#users']").click(function(event) {
+        event.preventDefault();
+        $("#contact").hide()
+        $("#drink").hide()
+        $("#hotel").hide()
+        $("#food").hide()
+        $("#yaya").hide()
+        $("#yoyo").hide()
+        $("#yeyo").show()
+
+        
+        console.log("Users link clicked");
+      });
+      $("a[href='#events']").click(function(event) {
+        event.preventDefault();
+        $("#contact").hide()
+        $("#drink").hide()
+        $("#hotel").hide()
+        $("#food").hide()
+        $("#yaya").hide()
+        $("#yeyo").hide()
+        $("#yoyo").show()
+
+        
+        console.log("Events link clicked");
+      });
+
+      $("a[href='#orders']").click(function(event) {
+        event.preventDefault();
+        $("#contact").hide()
+        $("#drink").hide()
+        $("#hotel").hide()
+        $("#food").hide()
+        $("#yoyo").hide()
+        $("#yeyo").hide()
+        $("#yaya").show()
+        
+
+        
+        console.log("Events link clicked");
+      });
+
+      $("a[href='#food']").click(function(event) {
+        event.preventDefault();
+        $("#contact").hide()
+        $("#drink").hide()
+        $("#hotel").hide()
+        $("#yoyo").hide()
+        $("#yeyo").hide()
+        $("#yaya").hide()
+        $("#food").show()
+        
+
+        
+        console.log("Events link clicked");
+      });
+
+      $("a[href='#hotel']").click(function(event) {
+        event.preventDefault();
+        $("#contact").hide()
+        $("#drink").hide()
+        $("#food").hide()
+        $("#yoyo").hide()
+        $("#yeyo").hide()
+        $("#yaya").hide()
+        $("#hotel").show()
+        
+
+        
+        console.log("Events link clicked");
+      });
+
+      $("a[href='#drink']").click(function(event) {
+        event.preventDefault();
+        $("#contact").hide()
+        $("#food").hide()
+        $("#yoyo").hide()
+        $("#yeyo").hide()
+        $("#yaya").hide()
+        $("#hotel").hide()
+        $("#drink").show()
+        
+
+        
+        console.log("Events link clicked");
+      });
+
+      $("a[href='#contacts']").click(function(event) {
+        event.preventDefault();
+        
+        $("#food").hide()
+        $("#yoyo").hide()
+        $("#yeyo").hide()
+        $("#yaya").hide()
+        $("#hotel").hide()
+        $("#drink").hide()
+        $("#contact").show()
+        
+
+        
+        console.log("Events link clicked");
+      });
+
+
+    });
+
+
+    </script>
+  
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="header">
+        <h3>Admin Dashboard</h3>
+      </div>
+      <ul>
+        
+        <li><a href="#users">Users</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#orders">Books</a></li>
+        <li><a href="#food">Foods</a></li>
+        <li><a href="#hotel">Hotels</a></li>
+        <li><a href="#drink">Drinks</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+
+        <li><a href="/logout">Logout</a></li>
+        <div class="edit1-form" id="edit1-form" style="display: none;">
+            <h2>Edit Event</h2>
+            <form id="edit1-user-form" action="/edit_event" method="post">
+              <input type="text" id="edit1-event-title" name="edit1-event-title" readonly>
+              <label for="edit1-event-title">Title:</label>
+              <input type="text" id="edit1-events-title" name="edit1-events-title">
+              <label for="edit1-event-location">Location:</label>
+              <input type="text" id="edit1-event-location" name="edit1-event-location">
+              <label for="edit1-event-price">Price($):</label>
+              <input type="text" id="edit1-event-price" name="edit1-event-price">
+              <label for="edit1-event-adress">Adress:</label>
+              <input type="text" id="edit1-event-adress" name="edit1-event-adress">
+              <label for="edit1-event-dateandtime">DateAndTime:</label>
+              <input type="text" id="edit1-event-dateandtime" name="edit1-event-dateandtime">
+              <label for="edit1-event-description">Description:</label>
+              <input type="text" id="edit1-event-description" name="edit1-event-description">
+              <button type="submit">Save</button>
+            </form>
+          </div>
+      </ul>
+    </div>
+    <div class="content">
+      
+      <div class="yeyo" id="yeyo">
+        <h2>Users List</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach(function(user) { %>
+            <tr>
+                <td class="user-id"><%=user._id %></td>
+                <td class="user-name"><%=user.username %></td>
+                <td class="user-email"><%=user.email %></td>
+                <td class="user-phone"><%=user.phone %></td>
+                <td>
+                 <button class="btn edit-btn" id="edit">Edit</button>
+                 <button class="btn delete-btn" id="del">Delete</button>
+              </td>
+            </tr>
+            
+           <% }) %>
+            <!-- Add more user rows here -->
+          </tbody>
+        </table>
+    </div>
+    
+    <div class="yoyo" id="yoyo">
+        <h2>Events List</h2>
+        <table>
+          <thead>
+            <tr>
+              
+              <th>Title</th>
+              <th>Location</th>
+              <th>Price($)</th>
+              <th>Adress</th>
+              <th>DateAndTime</th>
+              <th>description</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <% events.forEach(function(event) { %>
+            <tr>
+                
+                <td class="event-title"><%=event.title %></td>
+                <td class="event-location"><%=event.location %></td>
+                <td class="event-price"><%=event.price %></td>
+                <td class="event-adress"><%=event.adress %></td>
+                <td class="event-dateandtime"><%=event.datetime %></td>
+                <td class="event-description"><%=event.description %></td>
+                
+              
+              <td>
+                <button class="btn btn-edit" id="ks">Edit</button>
+                <button class="btn btn-delete">Delete</button>
+              </td>
+            </tr>
+            <% }) %>
+            <!-- Add more user rows here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class ="food" id ="food" style="float: left;">
+      <h2>Foods List</h2>
+      <table>
+        <thread>
+          <tr>
+            
+            
+            <th>Title</th>
+            <th>Location</th>
+            <th>Phone</th>
+            <th>Description</th>
+          </tr>
+        </thread>
+        <tbody>
+          <% foods.forEach(function(food) { %>
+            <tr>
+                
+                <td class="food-title"><%=food.title %></td>
+                <td class="food-location"><%=food.location %></td>
+                <td class="food-phone"><%=food.phone%></td>
+                <td class="food-description"><%=food.description %></td>
+                
+              
+              <td>
+                <button class="btn btn-fedit" id="ks">Edit</button>
+                <button class="btn btn-fdelete">Delete</button>
+              </td>
+            </tr>
+            <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class ="hotel" id ="hotel" style="float: left;">
+      <h2>Hotel List</h2>
+      <table>
+        <thread>
+          <tr>
+            
+            
+            <th>Title</th>
+            <th>Location</th>
+            <th>Phone</th>
+            <th>Description</th>
+          </tr>
+        </thread>
+        <tbody>
+          <% hotels.forEach(function(hotel) { %>
+            <tr>
+                
+                <td class="hotel-title"><%=hotel.title %></td>
+                <td class="hotel-location"><%=hotel.location %></td>
+                <td class="hotel-phone"><%=hotel.phone%></td>
+                <td class="hotel-description"><%=hotel.description %></td>
+                
+              
+              <td>
+                <button class="btn btn-hedit" id="ks">Edit</button>
+                <button class="btn btn-hdelete">Delete</button>
+              </td>
+            </tr>
+            <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class ="drink" id ="drink" style="float: left;">
+      <h2>Drink List</h2>
+      <table>
+        <thread>
+          <tr>
+            
+            
+            <th>Title</th>
+            <th>Location</th>
+            <th>Phone</th>
+            <th>Description</th>
+          </tr>
+        </thread>
+        <tbody>
+          <% drinks.forEach(function(drink) { %>
+            <tr>
+                
+                <td class="drink-title"><%=drink.title %></td>
+                <td class="drink-location"><%=drink.location %></td>
+                <td class="drink-phone"><%=drink.phone%></td>
+                <td class="drink-description"><%=drink.description %></td>
+                
+              
+              <td>
+                <button class="btn btn-dedit" id="ks">Edit</button>
+                <button class="btn btn-ddelete">Delete</button>
+              </td>
+            </tr>
+            <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class ="contact" id ="contact" style="float: left;">
+      <h2>Drink List</h2>
+      <table>
+        <thread>
+          <tr>
+            
+            
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            
+          </tr>
+        </thread>
+        <tbody>
+          <% contacts.forEach(function(contact) { %>
+            <tr>
+                
+                <td class="contact-name"><%=contact.name %></td>
+                <td class="contact-email"><%=contact.email %></td>
+                <td class="contact-message"><%=contact.message %></td>
+                
+              
+             
+            </tr>
+            <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+  
+
+    
+
+    <div class="yaya" id="yaya">
+      <h2>Books List</h2>
+      <table>
+        <thead>
+          <tr>
+            
+            <th>Title</th>
+            <th>Datetime</th>
+            <th>Total($)</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Name1</th>
+            <th>Phone1</th>
+            <th>Name2</th>
+            <th>Phone2</th>
+            <th>Name3</th>
+            <th>Phone3</th>
+            <th>Cardtype</th>
+            <th>Cardnum</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0; i < cardnum.length; i++)  { %> 
+          <tr>
+              
+              <td class="title"><%=titles[i]%></td>
+              <td class="dateandtime"><%=datetimes[i]%></td>
+              <td class="total"><%=total[i]%></td>
+              <td class="name"><%=name[i]%></td>
+              <td class="phone"><%=phone[i]%></td>
+              <td class="name1"><%=name1[i]%></td>
+              <td class="phone1"><%=phone1[i]%></td>
+              <td class="name2"><%=name2[i]%></td>
+              <td class="phone2"><%=phone2[i]%></td>
+              <td class="name3"><%=name3[i]%></td>
+              <td class="phone3"><%=phone3[i]%></td>
+              <td class="cardtype"><%=cardtype[i]%></td>
+              <td class="cardnum"><%=cardnum[i]%></td>
+             
+              
+            
+            
+          </tr>
+          <% } %>
+          <!-- Add more user rows here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+    
+
+    <div class="edit-form" id="edit-form"  style="display: none;">
+        <h2>Edit User</h2>
+        <form id="edit-user-form" method="post" action="/edit_user">
+          <input type="text" id="edit-user-id" name="edit-user-id" readonly>
+          <label for="edit-user-name">Name:</label>
+          <input type="text" id="edit-user-name" name="edit-user-name">
+          <label for="edit-user-email">Email:</label>
+          <input type="email" id="edit-user-email" name="edit-user-email">
+          <label for="edit-user-phone">Phone:</label>
+          <input type="text" id="edit-user-phone" name="edit-user-phone">
+          <button type="submit">Save</button>
+        </form>
+      </div>
+   
+  </div>
+
+  <div class="editf-form" id="editf-form"  style="display: none;">
+    <h2>Edit Food</h2>
+    <form id="edit1-user-form" method="post" action="/edit_food">
+      <label for="editf-food-title">Food Title:</label>
+      <input type="text" id="editf-food-title">
+    
+      <label for="editf-food-location">Food Location:</label>
+      <input type="text" id="editf-food-location">
+    
+      <label for="editf-food-phone">Food Phone:</label>
+      <input type="text" id="editf-food-phone">
+    
+      <label for="editf-food-description">Food Description:</label>
+      <textarea id="editf-food-description"></textarea>
+    
+      <!-- Add more input fields or customize the form as needed -->
+    
+      <button type="submit">Save</button>
+    </form>
+    
+  </div>
+
+
+
+  <div class="edith-form" id="edith-form"  style="display: none;">
+    <h2>Edit Hotel</h2>
+    <form id="edit1-user-form" method="post" action="/edit_hotel">
+      <label for="edith-hotel-title">Hotel Title:</label>
+      <input type="text" id="edith-hotel-title">
+    
+      <label for="edith-hotel-location">Hotel Location:</label>
+      <input type="text" id="edith-hotel-location">
+    
+      <label for="edith-hotel-phone">Food Phone:</label>
+      <input type="text" id="edith-hotel-phone">
+    
+      <label for="edith-hotel-description">Food Description:</label>
+      <textarea id="edith-hotel-description"></textarea>
+    
+      <!-- Add more input fields or customize the form as needed -->
+    
+      <button type="submit">Save</button>
+    </form>
+    
+  </div>
+
+</div>
+
+<div class="editd-form" id="editd-form"  style="display: none;">
+  <h2>Edit Drinks</h2>
+  <form id="edit1-user-form" method="post" action="/edit_drink">
+    <label for="edith-drink-title">Drink Title:</label>
+    <input type="text" id="editd-drink-title">
+  
+    <label for="editd-drink-location">Drink Location:</label>
+    <input type="text" id="editd-drink-location">
+  
+    <label for="editd-drink-phone">Drink Phone:</label>
+    <input type="text" id="editd-drink-phone">
+  
+    <label for="editd-drink-description">Drink Description:</label>
+    <textarea id="editd-drink-description"></textarea>
+  
+    <!-- Add more input fields or customize the form as needed -->
+  
+    <button type="submit">Save</button>
+  </form>
+  
+</div>
+
+</div>
+
+  
+
+</div>
+  
+</body>
+</html>
+<style>
+  .food {
+    float: left;
+    margin-right: 560px; /* Optional: Add some right margin */
+  }
+</style>

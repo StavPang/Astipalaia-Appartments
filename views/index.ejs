@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Campy </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+    </head>
+    <body>
+    
+        <section class="nav-bar">
+            <div class="logo">Astypalea</div>
+            <ul class="menu">
+                <li><a href="/">home</a></li>
+                
+                <li><a href="#">Generic Informations</a></li>
+                <li><a href="#">contact us</a></li>
+                <% if(!currentUser){ %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Sign Up</a></li>
+                       
+                    
+                    
+                    
+                <% } else { %>
+                    
+                    <li><a href="/logout">Logout</a></li>
+                <% } %>
+            </ul>
+            </div>
+        
+        </section>
+        
+    
+
+    <div class="container">
+
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+
+
+ <div class="container">
+    <section class="banner">
+        <div class="banner-text-item">
+            <div class="banner-heading">
+                <h1>Find your event on island</h1>
+            </div>
+            
+            <a href="/new" class="book">All events</a>
+        </div>
+    </section>
+
+    <html>
+        <head>
+            <title>Dashboard</title>
+            <style>
+                /* Customize the dashboard layout and styling as needed */
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .header {
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px;
+                    text-align: center;
+                }
+                
+                .content {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding: 20px;
+                }
+                
+                .box {
+                    background-color: #f1f1f1;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                    margin: 10px;
+                    padding: 20px;
+                    text-align: center;
+                    width: 200px;
+                }
+                
+                .box h2 {
+                    margin-top: 0;
+                }
+                
+                .box p {
+                    margin-bottom: 0;
+                }
+            </style>
+        </head>
+        <body>
+            <header class="header">
+                <h1>Welcome to your Dashboard!</h1>
+            </header>
+            <div class="content">
+                <div class="box">
+                    <h2>Profile</h2>
+                    <p>View and edit your profile information</p>
+                    <a href="/edit">Go to Profile</a>
+                </div>
+                <div class="box">
+                    <h2>Messages</h2>
+                    <p>View your messages and send new ones</p>
+                    <a href="/comments/new">Go to Messages</a>
+                </div>
+                <div class="box">
+                    <h2>History</h2>
+                    <p>View your History </p>
+                    <a href="/history">Go to Settings</a>
+                </div>
+                <div class="box">
+                    <h2>Help</h2>
+                    <p>Get help and support</p>
+                    <a href="#">Go to Help</a>
+                </div>
+            </div>
+        </body>
+        </html>  
+    
+
+    
+
+    
+
+   
+    
+    
+
+    
+
+    
+</div>
+
+
